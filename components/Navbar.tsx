@@ -236,7 +236,7 @@ export function Navbar() {
               <span className="text-xl font-bold uppercase text-primary/90">
                 Stars Education
               </span>
-              <span className="text-xs font-medium text-slate-500">
+              <span className="text-xs font-medium text-gray-400">
                 Nurturing Bright Young Minds
               </span>
             </div>
