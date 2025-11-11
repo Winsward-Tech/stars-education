@@ -224,10 +224,10 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <div className="relative h-14 w-14 shrink-0">
               <Image
-                src="/stars-edu-logo.jpg"
+                src="/Logo-Stars.png"
                 alt="Stars Education logo"
                 fill
-                sizes="56px"
+                sizes="64px"
                 className="object-contain"
                 priority
               />
