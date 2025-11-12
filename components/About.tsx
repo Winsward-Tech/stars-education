@@ -1,62 +1,86 @@
 import Image from "next/image";
+import {
+  PiChatsCircleFill,
+  PiChalkboardTeacherFill,
+  PiTargetFill,
+} from "react-icons/pi";
+
+const featureCards = [
+  {
+    title: "Tailored Learning Blueprints",
+    description:
+      "We study your child’s strengths, challenges, and aspirations to design a tailored programme that accelerates progress.",
+    icon: PiTargetFill,
+  },
+  {
+    title: "Mentors Who Inspire",
+    description:
+      "UK-qualified teachers bring 8+ years of classroom expertise, providing nurturing guidance and confident instruction.",
+    icon: PiChalkboardTeacherFill,
+  },
+  {
+    title: "Progress You Can See",
+    description:
+      "Parents receive clear feedback loops, milestone celebrations, and actionable insights after every session.",
+    icon: PiChatsCircleFill,
+  },
+];
 
 export function About() {
   return (
-    <section id="about" className="bg-white py-20">
-      <div className="mx-auto flex max-w-5xl flex-col gap-12 px-6 md:flex-row md:px-10">
-        <div className="flex-1 space-y-6">
-          <h2 className="text-3xl font-semibold text-primary md:text-4xl">
-            Personalised tutoring tailored to your child&apos;s needs
-          </h2>
-          <p className="text-base leading-relaxed text-slate-600">
-            Stars Education delivers bespoke one-to-one tutoring that aligns with the UK National Curriculum. Sessions are crafted to build confidence, improve grades, and unlock a love for learning.
-          </p>
-          <p className="text-base leading-relaxed text-slate-600">
-            Every tutor is UK-based, fully vetted, and DBS checked. We collaborate closely with parents to understand goals, track progress, and celebrate every breakthrough.
-          </p>
+    <section
+      id="about"
+      className="relative isolate overflow-hidden bg-white py-24"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#f3f7ff] via-white to-[#fff4e6]" />
+        <div className="absolute left-1/4 top-10 h-48 w-48 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute right-1/5 bottom-8 h-56 w-56 translate-x-1/2 rounded-full bg-[#f7a81b]/20 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14 px-6 md:px-10 lg:flex-row lg:items-center lg:px-12">
+        <div className="relative w-full max-w-xl flex-1">
+          <div className="relative h-[420px] w-full overflow-hidden rounded-[36px] border border-primary/10 bg-white shadow-[0_30px_70px_-40px_rgba(13,44,91,0.4)]">
+            <Image
+              src="/about-us.jpg"
+              alt="Tutor guiding a student through an engaging online session"
+              fill
+              sizes="(min-width: 1024px) 460px, (min-width: 768px) 60vw, 90vw"
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
-        <div className="flex-1 rounded-[28px] border border-primary/10 bg-accent/40 p-8 shadow-lg shadow-primary/5">
-          <div className="flex flex-col gap-6">
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.35em] text-primary">
-                Tutor Profile Highlights
-              </h3>
-              <p className="mt-3 text-sm text-slate-500">
-                Fully qualified UK educator with ongoing professional development.
-              </p>
-            </div>
-            <dl className="grid gap-4 text-sm">
-              <div className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm shadow-primary/5">
-                <dt className="font-medium text-primary">Qualified Teacher</dt>
-                <dd className="text-slate-500">PGCE, 8+ years experience</dd>
+
+        <div className="flex-1 space-y-8">
+          <div className="space-y-4">
+            <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+              About Stars Education
+            </span>
+          </div>
+
+          <div className="grid gap-4">
+            {featureCards.map((feature) => (
+              <div
+                key={feature.title}
+                className="group flex items-start gap-4 rounded-3xl border border-primary/10 bg-white px-5 py-6 shadow-[0_20px_60px_-40px_rgba(13,44,91,0.4)] transition hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_25px_70px_-45px_rgba(13,44,91,0.55)]"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-white">
+                  <feature.icon className="h-6 w-6" />
+                </span>
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold text-primary">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm shadow-primary/5">
-                <dt className="font-medium text-primary">DBS Checked</dt>
-                <dd className="text-slate-500">Certificate reference placeholder</dd>
-              </div>
-              <div className="flex items-center justify-between rounded-2xl bg-white px-4 py-3 shadow-sm shadow-primary/5">
-                <dt className="font-medium text-primary">Parent Rated</dt>
-                <dd className="text-slate-500">4.9/5 satisfaction</dd>
-              </div>
-            </dl>
-            <div className="flex flex-col items-center gap-3 rounded-2xl border border-primary/20 bg-white px-4 py-6">
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                Accredited member
-              </span>
-              <div className="relative h-16 w-40">
-                <Image
-                  src="/association-mem.jpg"
-                  alt="The Tutors' Association corporate member 2025-2026"
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
-

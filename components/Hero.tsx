@@ -116,7 +116,7 @@ export function Hero() {
 
       <div className="relative z-20 mx-auto flex max-w-6xl flex-col gap-14 px-6 pb-16 pt-12 md:flex-row md:items-center md:gap-12 md:px-10 lg:pb-20 lg:pt-16">
         <div className="flex w-full max-w-xl flex-col gap-8 md:self-start">
-          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ffd233] shadow-[0_12px_24px_rgba(255,210,51,0.42)]">
+          <div className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#1f3c7a] md shadow-[0_12px_24px_rgba(255,210,51,0.42)]">
             Trusted UK Tutoring
             <span className="ml-1 inline-block h-2 w-2 rounded-full bg-[#ffd233]" />
           </div>

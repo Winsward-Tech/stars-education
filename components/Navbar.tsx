@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -21,8 +22,8 @@ const socialLinks = [
   },
   {
     href: "https://www.twitter.com/starseducation",
-    label: "Twitter",
-    Icon: FaTwitter,
+    label: "X",
+    Icon: FaXTwitter,
   },
   {
     href: "https://www.instagram.com/starseducation",
@@ -188,11 +189,11 @@ export function Navbar() {
                   Call Us
                 </span>
                 <a
-                  href="tel:+442036950000"
+                  href="tel:+447932577300"
                   className="font-semibold hover:underline"
                   onClick={closeTopBar}
                 >
-                  +44 20 3695 0000
+                  +44 7932 577330
                 </a>
               </div>
             </div>
