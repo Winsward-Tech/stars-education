@@ -8,7 +8,6 @@ import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Subjects } from "@/components/Subjects";
 import { Testimonials } from "@/components/Testimonials";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
         <Highlights />
         <About />
         <Subjects />
-        <WhyChooseUs />
         <LearningJourney />
         <Testimonials />
         <CallToAction />

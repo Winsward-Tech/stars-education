@@ -32,34 +32,37 @@ export function About() {
       id="about"
       className="relative isolate overflow-hidden bg-white py-24"
     >
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f3f7ff] via-white to-[#fff4e6]" />
-        <div className="absolute left-1/4 top-10 h-48 w-48 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute right-1/5 bottom-8 h-56 w-56 translate-x-1/2 rounded-full bg-[#f7a81b]/20 blur-3xl" />
-      </div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#f3f7ff] via-white to-[#fff4e6]" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14 px-6 md:px-10 lg:flex-row lg:items-center lg:px-12">
         <div className="relative w-full max-w-xl flex-1">
-          <div className="relative h-[420px] w-full overflow-hidden rounded-[36px] border border-primary/10 bg-white shadow-[0_30px_70px_-40px_rgba(13,44,91,0.4)]">
+          <div className="relative h-[620px] w-full overflow-hidden rounded-[36px] border border-primary/10 bg-white shadow-[0_30px_70px_-40px_rgba(13,44,91,0.4)]">
             <Image
               src="/about-us.jpg"
               alt="Tutor guiding a student through an engaging online session"
               fill
               sizes="(min-width: 1024px) 460px, (min-width: 768px) 60vw, 90vw"
-              className="object-cover"
+              className="object-cover object-top"
               priority
             />
           </div>
         </div>
 
-        <div className="flex-1 space-y-8">
-          <div className="space-y-4">
-            <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
-              About Stars Education
-            </span>
+        <div className="flex flex-1 flex-col gap-8 lg:h-[620px]">
+          <span className="inline-flex w-max items-center rounded-full border border-primary/20 bg-primary/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+            About Stars Education
+          </span>
+          <div className="max-w-xl space-y-1">
+            
+            <h2 className="text-2xl font-semibold text-primary md:text-4xl">
+              Expert-Recommended Learning Benefits
+            </h2>
+            {/* <p className="text-base leading-relaxed text-slate-600">
+              We offer structured and engaging courses crafted by seasoned UK educators to unlock confidence, accelerate progress, and keep curiosity thriving.
+            </p> */}
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-4 lg:mt-auto">
             {featureCards.map((feature) => (
               <div
                 key={feature.title}
