@@ -38,7 +38,7 @@ const journeySteps = [
 
 export function LearningJourney() {
   return (
-    <section className="relative overflow-hidden bg-accent py-24">
+    <section id="learning-journey" className="relative overflow-hidden bg-accent py-24">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-[#f6f8ff] via-accent to-[#fff6e9]" />
         <div className="absolute left-1/4 top-12 hidden h-72 w-72 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl lg:block" />
@@ -46,14 +46,17 @@ export function LearningJourney() {
       </div>
 
       <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 md:px-10 lg:flex-row lg:items-center lg:px-12">
-        <div className="relative w-full max-w-xl flex-1 overflow-hidden rounded-[36px] bg-white shadow-[0_45px_95px_-55px_rgba(13,44,91,0.55)]">
+        <div
+          className="relative w-full max-w-sm flex-1 overflow-hidden rounded-[36px] bg-white shadow-[0_45px_95px_-55px_rgba(13,44,91,0.55)] lg:max-w-md"
+          style={{ aspectRatio: "3 / 4" }}
+        >
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-secondary/10 mix-blend-multiply" />
           <Image
-            src="/student5.jpg"
+            src="/student4.jpg"
             alt="Tutor guiding students through an interactive lesson"
-            width={640}
-            height={760}
-            className="h-full w-full object-cover"
+            fill
+            sizes="(min-width: 1024px) 360px, (min-width: 768px) 50vw, 90vw"
+            className="object-cover object-top"
             priority
           />
         </div>
@@ -66,9 +69,6 @@ export function LearningJourney() {
             <h2 className="text-4xl font-semibold leading-tight text-primary md:text-5xl">
               Each Lesson Brings Exciting Discoveries
             </h2>
-            <p className="text-base leading-relaxed text-slate-600">
-              Our programmes engage every learner through collaborative exploration, purposeful feedback, and joyful moments that spark curiosity.
-            </p>
           </div>
 
           

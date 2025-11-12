@@ -72,6 +72,7 @@ export function Highlights() {
   return (
     <section
       ref={sectionRef}
+      id="highlights"
       className="relative isolate overflow-hidden bg-white pb-28 pt-12 text-[#0d2c5b] "
     >
       <div className="pointer-events-none absolute inset-0">

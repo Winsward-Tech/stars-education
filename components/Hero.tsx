@@ -46,7 +46,7 @@ export function Hero() {
   const activeSlide = slides[activeIndex] ?? slides[0];
 
   return (
-    <section className="relative overflow-hidden bg-white text-slate-900" id="top">
+    <section className="relative overflow-hidden bg-white text-slate-900" id="hero">
       <div className="absolute inset-y-0 right-0 hidden md:block md:w-[58%] lg:w-[52%]">
         <Swiper
           modules={[Autoplay, Pagination, EffectFade]}

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -13,6 +13,14 @@ const navLinks = [
   { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ];
+
+const sectionMap: Record<string, string[]> = {
+  "#home": ["hero", "highlights"],
+  "#about": ["about"],
+  "#subjects": ["subjects", "learning-journey"],
+  "#testimonials": ["testimonials"],
+  "#contact": ["contact"],
+};
 
 const socialLinks = [
   {
@@ -98,11 +106,62 @@ function MailIcon() {
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [topBarOpen, setTopBarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("#home");
 
   const toggleMobileMenu = () => setMobileOpen((prev) => !prev);
   const closeMobileMenu = () => setMobileOpen(false);
   const toggleTopBar = () => setTopBarOpen((prev) => !prev);
   const closeTopBar = () => setTopBarOpen(false);
+
+  useEffect(() => {
+    const elements = Object.entries(sectionMap).flatMap(([navId, sectionIds]) =>
+      sectionIds.map((sectionId) => ({ navId, sectionElement: document.getElementById(sectionId) }))
+    );
+
+    const observers = elements
+      .filter((item): item is { navId: string; sectionElement: HTMLElement } => Boolean(item.sectionElement))
+      .map(({ navId, sectionElement }) => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveSection(navId);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        observer.observe(sectionElement);
+        return observer;
+      });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
+
+  const handleNavClick = (href: string) => {
+    closeMobileMenu();
+    const sectionIds = sectionMap[href];
+    if (!sectionIds) return;
+
+    const target = sectionIds
+      .map((id) => document.getElementById(id))
+      .find((el): el is HTMLElement => Boolean(el));
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const computedNavLinks = useMemo(
+    () =>
+      navLinks.map((link) => ({
+        ...link,
+        isActive: activeSection === link.href,
+      })),
+    [activeSection]
+  );
 
   return (
     <header className="sticky top-0 z-50">
@@ -222,7 +281,7 @@ export function Navbar() {
 
       <div className="bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6 md:px-10">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="#top" className="flex items-center gap-3" onClick={() => handleNavClick("#home")}>
             <div className="relative h-14 w-14 shrink-0">
               <Image
                 src="/Logo-Stars.png"
@@ -243,21 +302,26 @@ export function Navbar() {
             </div>
           </Link>
           <nav className="hidden flex-1 items-center justify-center gap-7 text-sm font-medium text-slate-500 md:flex">
-            {navLinks.map((link) => (
-              <Link
+            {computedNavLinks.map((link) => (
+              <button
                 key={link.href}
-                href={link.href}
-                className="uppercase tracking-wide text-slate-500 transition hover:text-primary"
-                onClick={closeMobileMenu}
+                type="button"
+                onClick={() => handleNavClick(link.href)}
+                className={`relative px-1 py-1 uppercase tracking-wide transition after:absolute after:left-1/2 after:top-full after:h-[3px] after:-translate-x-1/2 after:rounded-full after:bg-primary after:transition-all after:duration-300 ${
+                  link.isActive
+                    ? "text-primary after:w-6 after:opacity-100"
+                    : "text-slate-500 hover:text-primary after:w-0 after:opacity-0 hover:after:w-6 hover:after:opacity-100"
+                }`}
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
           <div className="flex items-center gap-4">
             <a
               href="#contact"
               className="hidden rounded-full bg-gradient-to-r from-primary to-primary/70 px-6 py-2 text-sm font-semibold uppercase tracking-wide text-white !text-white shadow-lg shadow-primary/25 transition hover:from-primary/90 hover:to-primary hover:text-white hover:!text-white md:inline-flex"
+              onClick={() => handleNavClick("#contact")}
             >
               Book Your Consultation
             </a>
@@ -299,27 +363,27 @@ export function Navbar() {
             </button>
           </div>
         </div>
-        <div
-          id="mobile-primary-nav"
-          className={`md:hidden`}
-          hidden={!mobileOpen}
-        >
+        <div id="mobile-primary-nav" className={`md:hidden`} hidden={!mobileOpen}>
           <div className="border-t border-slate-100 bg-white/95 px-6 pb-6 pt-4 shadow-sm backdrop-blur-sm">
             <nav className="flex flex-col gap-3 text-sm font-semibold text-slate-600">
-              {navLinks.map((link) => (
-                <Link
+              {computedNavLinks.map((link) => (
+                <button
                   key={link.href}
-                  href={link.href}
-                  className="rounded-lg px-3 py-2 uppercase tracking-wide transition hover:bg-primary/10 hover:text-primary"
-                  onClick={closeMobileMenu}
+                  type="button"
+                  onClick={() => handleNavClick(link.href)}
+                  className={`relative rounded-lg px-3 py-2 uppercase tracking-wide transition after:absolute after:left-1/2 after:top-full after:h-[3px] after:-translate-x-1/2 after:rounded-full after:bg-primary after:transition-all after:duration-300 ${
+                    link.isActive
+                      ? "bg-primary/10 text-primary after:w-6 after:opacity-100"
+                      : "hover:bg-primary/10 hover:text-primary after:w-0 after:opacity-0 hover:after:w-6 hover:after:opacity-100"
+                  }`}
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
             </nav>
             <a
               href="#contact"
-              onClick={closeMobileMenu}
+              onClick={() => handleNavClick("#contact")}
               className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary/70 px-6 py-2 text-sm font-semibold uppercase tracking-wide text-white !text-white shadow-lg shadow-primary/25 transition hover:from-primary/90 hover:to-primary hover:text-white hover:!text-white"
             >
               Book Your Consultation

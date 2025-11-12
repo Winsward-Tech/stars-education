@@ -19,15 +19,9 @@ export function CallToAction() {
         <div className="flex flex-col gap-3 sm:flex-row">
           <Link
             href="#contact"
-            className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-lg shadow-black/10 transition hover:bg-white/90"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary/70 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-primary/25 transition hover:from-primary/90 hover:to-primary hover:text-white"
           >
-            Book Free Consultation
-          </Link>
-          <Link
-            href="tel:+442036950000"
-            className="rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
-          >
-            Call +44 20 3695 0000
+            Book Your Consultation
           </Link>
         </div>
       </div>

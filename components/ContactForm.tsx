@@ -81,7 +81,7 @@ export function ContactForm() {
               id="email"
               name="email"
               type="email"
-              placeholder="info@starseducation.co.uk"
+              placeholder="example@email.com"
               required
               className="mt-2 rounded-2xl border border-primary/20 bg-surface px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20"
             />
@@ -106,7 +106,7 @@ export function ContactForm() {
           </button>
         </form>
         <p className="mt-6 text-center text-xs text-slate-500">
-          We typically respond within one working day. Replace this note with final compliance copy when ready.
+          We typically respond within one working day.
         </p>
       </div>
     </section>
