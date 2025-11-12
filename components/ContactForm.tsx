@@ -1,5 +1,6 @@
- "use client";
+"use client";
 
+import Image from "next/image";
 import { FormEvent } from "react";
 
 export function ContactForm() {
@@ -10,7 +11,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact" className="bg-surface py-20">
+    <section id="contact" className="bg-surface pt-20 pb-10">
       <div className="mx-auto max-w-5xl rounded-[32px] border border-primary/10 bg-white px-6 py-16 shadow-xl shadow-primary/10 md:px-10">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-semibold text-primary md:text-4xl">
@@ -108,6 +109,20 @@ export function ContactForm() {
         <p className="mt-6 text-center text-xs text-slate-500">
           We typically respond within one working day.
         </p>
+      </div>
+      <div className="mt-6 flex flex-col items-center gap-6 text-center md:flex-row md:justify-center md:gap-12">
+        <div className="relative h-20 w-20 md:h-24 md:w-24">
+          <Image src="/Stars Education-Winsward Tech-b.png" alt="Stars Education logo" fill sizes="320px" className="object-contain" />
+        </div>
+        <div className="relative h-20 w-48">
+          <Image
+            src="/association-mem.jpg"
+            alt="The Tutors' Association corporate member 2025-2026"
+            fill
+            sizes="192px"
+            className="object-contain"
+          />
+        </div>
       </div>
     </section>
   );

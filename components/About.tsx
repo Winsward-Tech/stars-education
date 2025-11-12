@@ -36,7 +36,7 @@ export function About() {
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-14 px-6 md:px-10 lg:flex-row lg:items-center lg:px-12">
         <div className="relative w-full max-w-xl flex-1">
-          <div className="relative h-[620px] w-full overflow-hidden rounded-[36px] border border-primary/10 bg-white shadow-[0_30px_70px_-40px_rgba(13,44,91,0.4)]">
+          <div className="relative h-[520px] w-full overflow-hidden rounded-[36px] border border-primary/10 bg-white shadow-[0_30px_70px_-40px_rgba(13,44,91,0.4)] md:h-[620px]">
             <Image
               src="/about-us.jpg"
               alt="Tutor guiding a student through an engaging online session"
@@ -45,6 +45,10 @@ export function About() {
               className="object-cover object-top"
               priority
             />
+            <div className="absolute bottom-3 left-1/2 w-[80%] max-w-[260px] -translate-x-[55%] rounded-2xl border border-white/60 bg-white/85 px-5 py-4 text-center shadow-[0_25px_45px_-35px_rgba(13,44,91,0.45)] backdrop-blur-sm md:bottom-6 md:left-auto md:right-8 md:w-[260px] md:translate-x-0 md:text-left">
+              <p className="text-lg font-semibold text-primary">Eva Tano-Yeboah</p>
+              <p className="text-sm text-slate-600">BSc, PGCE, MSc, QTS</p>
+            </div>
           </div>
         </div>
 
