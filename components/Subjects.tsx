@@ -24,6 +24,59 @@ type Subject = {
 
 const subjects: Subject[] = [
   {
+    name: "GCSE Mathematics",
+    headline: "Exam excellence & mastery",
+    description:
+      "Comprehensive GCSE preparation covering algebra, geometry, statistics, and problem-solving strategies with expert tutors and past paper practice.",
+    levels: {
+      primary: "GCSE Maths experts",
+      stages: ["Year 10", "Year 11"],
+    },
+    tagColor: "bg-blue-100 text-blue-700",
+    accentGlow: "bg-blue-200/40",
+    icon: PiMathOperationsFill,
+  },
+  {
+    name: "11+ Preparation",
+    headline: "Grammar & independent success",
+    description:
+      "Comprehensive 11+ exam preparation covering verbal reasoning, non-verbal reasoning, mathematics, and English with tailored strategies.",
+    levels: {
+      primary: "11+ specialists",
+      stages: ["Year 5", "Year 6"],
+    },
+    tagColor: "bg-amber-100 text-amber-700",
+    accentGlow: "bg-amber-200/40",
+    icon: PiGraduationCapFill,
+  },
+  {
+    name: "GCSE Science",
+    headline: "Triple & combined science",
+    description:
+      "Complete GCSE Science coverage for Biology, Chemistry, and Physics with practical skills, data analysis, and exam techniques.",
+    levels: {
+      primary: "GCSE Science tutors",
+      stages: ["Year 10", "Year 11"],
+    },
+    tagColor: "bg-teal-100 text-teal-700",
+    accentGlow: "bg-teal-200/40",
+    icon: PiFlaskFill,
+  },
+  {
+    name: "GCSE English",
+    headline: "Literature & language mastery",
+    description:
+      "In-depth GCSE English Language and Literature support with set text analysis, creative writing techniques, and structured essay planning.",
+    levels: {
+      primary: "GCSE English specialists",
+      stages: ["Year 10", "Year 11"],
+    },
+    tagColor: "bg-purple-100 text-purple-700",
+    accentGlow: "bg-purple-200/40",
+    icon: PiPenNibFill,
+  },
+ 
+  {
     name: "Mathematics",
     headline: "Problem-solving mastery",
     description:
@@ -61,58 +114,6 @@ const subjects: Subject[] = [
     tagColor: "bg-emerald-100 text-emerald-700",
     accentGlow: "bg-emerald-200/40",
     icon: PiFlaskFill,
-  },
-  {
-    name: "GCSE Mathematics",
-    headline: "Exam excellence & mastery",
-    description:
-      "Comprehensive GCSE preparation covering algebra, geometry, statistics, and problem-solving strategies with expert tutors and past paper practice.",
-    levels: {
-      primary: "GCSE Maths experts",
-      stages: ["Year 10", "Year 11"],
-    },
-    tagColor: "bg-blue-100 text-blue-700",
-    accentGlow: "bg-blue-200/40",
-    icon: PiMathOperationsFill,
-  },
-  {
-    name: "GCSE English",
-    headline: "Literature & language mastery",
-    description:
-      "In-depth GCSE English Language and Literature support with set text analysis, creative writing techniques, and structured essay planning.",
-    levels: {
-      primary: "GCSE English specialists",
-      stages: ["Year 10", "Year 11"],
-    },
-    tagColor: "bg-purple-100 text-purple-700",
-    accentGlow: "bg-purple-200/40",
-    icon: PiPenNibFill,
-  },
-  {
-    name: "GCSE Science",
-    headline: "Triple & combined science",
-    description:
-      "Complete GCSE Science coverage for Biology, Chemistry, and Physics with practical skills, data analysis, and exam techniques.",
-    levels: {
-      primary: "GCSE Science tutors",
-      stages: ["Year 10", "Year 11"],
-    },
-    tagColor: "bg-teal-100 text-teal-700",
-    accentGlow: "bg-teal-200/40",
-    icon: PiFlaskFill,
-  },
-  {
-    name: "11+ Preparation",
-    headline: "Grammar & independent success",
-    description:
-      "Comprehensive 11+ exam preparation covering verbal reasoning, non-verbal reasoning, mathematics, and English with tailored strategies.",
-    levels: {
-      primary: "11+ specialists",
-      stages: ["Year 5", "Year 6"],
-    },
-    tagColor: "bg-amber-100 text-amber-700",
-    accentGlow: "bg-amber-200/40",
-    icon: PiGraduationCapFill,
   },
 ];
 

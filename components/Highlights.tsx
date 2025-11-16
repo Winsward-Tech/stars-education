@@ -7,7 +7,7 @@ import { GiLaurelsTrophy } from "react-icons/gi";
 const highlight = {
   stat: "15 Years +",
   label: "Experience",
-  detail: "Our tutors have been teaching for over 10 years and have a wealth of experience in the classroom.",
+  detail: "Our tutors have been teaching for over 15 years and have a wealth of experience in the classroom.",
   accentGradient: "from-emerald-400 via-emerald-500 to-teal-500",
   accentBar: "bg-emerald-300/80",
   icon: GiLaurelsTrophy,
