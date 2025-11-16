@@ -22,7 +22,7 @@ type Subject = {
   icon: React.ComponentType<{ className?: string }>;
 };
 
-const subjects: Subject[] = [
+export const subjects: Subject[] = [
   {
     name: "GCSE Mathematics",
     headline: "Exam excellence & mastery",
