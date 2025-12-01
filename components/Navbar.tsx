@@ -167,20 +167,56 @@ export function Navbar() {
     <header className="sticky top-0 z-50">
       <div className="bg-gradient-to-r from-primary/95 via-primary/90 to-primary/80 text-white backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 py-3 md:px-10">
-          {/* Mobile Layout: Phone + Social Icons + Hamburger */}
+          {/* Mobile Layout: Hamburger + Phone + Social Icons */}
           <div className="flex items-center justify-between md:hidden">
-            <div className="flex items-center gap-3">
-              <span className="rounded-full bg-white/10 p-1.5">
-                <PhoneIcon />
-              </span>
-              <a
-                href="tel:+447932577300"
-                className="text-sm font-semibold hover:underline"
-              >
-                +44 7932 577330
-              </a>
-            </div>
-            <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15"
+              aria-expanded={topBarOpen}
+              aria-controls="top-info-nav"
+              onClick={toggleTopBar}
+            >
+              <span className="sr-only">Toggle contact information</span>
+              {topBarOpen ? (
+                <svg
+                  aria-hidden="true"
+                  className="size-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.6"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 6 18 18M6 18 18 6" />
+                </svg>
+              ) : (
+                <svg
+                  aria-hidden="true"
+                  className="size-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.6"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+              )}
+            </button>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <span className="rounded-full bg-white/10 p-1.5">
+                  <PhoneIcon />
+                </span>
+                <a
+                  href="tel:+447932577300"
+                  className="text-sm font-semibold hover:underline"
+                >
+                  +44 7932 577330
+                </a>
+              </div>
               <div className="flex items-center gap-2">
                 {socialLinks.map((item) => {
                   const Icon = item.Icon;
@@ -198,42 +234,6 @@ export function Navbar() {
                   );
                 })}
               </div>
-              <button
-                type="button"
-                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15"
-                aria-expanded={topBarOpen}
-                aria-controls="top-info-nav"
-                onClick={toggleTopBar}
-              >
-                <span className="sr-only">Toggle contact information</span>
-                {topBarOpen ? (
-                  <svg
-                    aria-hidden="true"
-                    className="size-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.6"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M6 6 18 18M6 18 18 6" />
-                  </svg>
-                ) : (
-                  <svg
-                    aria-hidden="true"
-                    className="size-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.6"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M4 7h16M4 12h16M4 17h16" />
-                  </svg>
-                )}
-              </button>
             </div>
           </div>
 
