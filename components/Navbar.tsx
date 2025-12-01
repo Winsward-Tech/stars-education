@@ -167,49 +167,82 @@ export function Navbar() {
     <header className="sticky top-0 z-50">
       <div className="bg-gradient-to-r from-primary/95 via-primary/90 to-primary/80 text-white backdrop-blur">
         <div className="mx-auto max-w-6xl px-6 py-3 md:px-10">
-          <div className="flex items-center md:hidden">
-            <button
-              type="button"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15"
-              aria-expanded={topBarOpen}
-              aria-controls="top-info-nav"
-              onClick={toggleTopBar}
-            >
-              <span className="sr-only">Toggle contact information</span>
-              {topBarOpen ? (
-                <svg
-                  aria-hidden="true"
-                  className="size-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.6"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6 6 18 18M6 18 18 6" />
-                </svg>
-              ) : (
-                <svg
-                  aria-hidden="true"
-                  className="size-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.6"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4 7h16M4 12h16M4 17h16" />
-                </svg>
-              )}
-            </button>
+          {/* Mobile Layout: Phone + Social Icons + Hamburger */}
+          <div className="flex items-center justify-between md:hidden">
+            <div className="flex items-center gap-3">
+              <span className="rounded-full bg-white/10 p-1.5">
+                <PhoneIcon />
+              </span>
+              <a
+                href="tel:+447932577300"
+                className="text-sm font-semibold hover:underline"
+              >
+                +44 7932 577330
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                {socialLinks.map((item) => {
+                  const Icon = item.Icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex size-8 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-white/25"
+                      aria-label={item.label}
+                    >
+                      <Icon className="size-3.5" aria-hidden="true" />
+                    </a>
+                  );
+                })}
+              </div>
+              <button
+                type="button"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15"
+                aria-expanded={topBarOpen}
+                aria-controls="top-info-nav"
+                onClick={toggleTopBar}
+              >
+                <span className="sr-only">Toggle contact information</span>
+                {topBarOpen ? (
+                  <svg
+                    aria-hidden="true"
+                    className="size-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.6"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 6 18 18M6 18 18 6" />
+                  </svg>
+                ) : (
+                  <svg
+                    aria-hidden="true"
+                    className="size-5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.6"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
+
+          {/* Expandable section for mobile (Email + Hours) */}
           <div
             id="top-info-nav"
             className={`${
               topBarOpen ? "grid" : "hidden"
-            } gap-4 border-t border-white/10 pt-4 text-sm text-white md:flex md:items-center md:justify-between md:gap-6 md:border-0 md:pt-0`}
+            } gap-4 border-t border-white/10 pt-4 text-sm text-white md:hidden`}
           >
             <a
               href="mailto:info@starseducation.com"
@@ -226,7 +259,6 @@ export function Navbar() {
                 <span className="font-semibold">info@starseducation.com</span>
               </div>
             </a>
-            <div className="hidden h-8 w-px bg-white/20 md:block" />
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-white/10 p-2">
                 <ClockIcon />
@@ -238,7 +270,37 @@ export function Navbar() {
                 <span className="font-semibold">8:00am – 8:00pm</span>
               </div>
             </div>
-            <div className="hidden h-8 w-px bg-white/20 md:block" />
+          </div>
+
+          {/* Desktop Layout: All items visible */}
+          <div className="hidden md:flex md:items-center md:justify-between md:gap-6">
+            <a
+              href="mailto:info@starseducation.com"
+              className="flex items-center gap-3 font-medium transition hover:text-white/80"
+            >
+              <span className="rounded-full bg-white/10 p-2">
+                <MailIcon />
+              </span>
+              <div className="leading-tight">
+                <span className="block text-xs uppercase tracking-wide text-white/70">
+                  Email Us
+                </span>
+                <span className="font-semibold">info@starseducation.com</span>
+              </div>
+            </a>
+            <div className="h-8 w-px bg-white/20" />
+            <div className="flex items-center gap-3">
+              <span className="rounded-full bg-white/10 p-2">
+                <ClockIcon />
+              </span>
+              <div className="leading-tight">
+                <span className="block text-xs uppercase tracking-wide text-white/70">
+                  Monday – Friday
+                </span>
+                <span className="font-semibold">8:00am – 8:00pm</span>
+              </div>
+            </div>
+            <div className="h-8 w-px bg-white/20" />
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-white/10 p-2">
                 <PhoneIcon />
@@ -250,13 +312,12 @@ export function Navbar() {
                 <a
                   href="tel:+447932577300"
                   className="font-semibold hover:underline"
-                  onClick={closeTopBar}
                 >
                   +44 7932 577330
                 </a>
               </div>
             </div>
-            <div className="hidden h-8 w-px bg-white/20 md:block" />
+            <div className="h-8 w-px bg-white/20" />
             <div className="flex items-center gap-2">
               {socialLinks.map((item) => {
                 const Icon = item.Icon;
@@ -268,7 +329,6 @@ export function Navbar() {
                     rel="noreferrer"
                     className="flex size-9 items-center justify-center rounded-full bg-white/15 text-white transition hover:bg-primary/40 hover:text-primary"
                     aria-label={item.label}
-                    onClick={closeTopBar}
                   >
                     <Icon className="size-4" aria-hidden="true" />
                   </a>
